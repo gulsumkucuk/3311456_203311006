@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_proje/elegant_notification.dart';
 import 'package:flutter_proje/genel.dart';
 import 'package:flutter_proje/information.dart';
 import 'package:flutter_proje/ing.dart';
@@ -93,7 +94,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     title: Text('BİLGİLENDİRME'),
                     onTap: () { Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context)=> const Information()));
+                        MaterialPageRoute(builder: (context)=>  Information()));
                     } ),
 
                 ListTile(
@@ -123,6 +124,16 @@ class _HomePageState extends State<HomePage> {
                     onTap: () { Navigator.of(context).push(
                         MaterialPageRoute(builder: (context)=> const Home()));
                     } ),
+                ListTile(
+                    leading: Icon(
+                      Icons.analytics_outlined,
+                      color: Colors.black,
+                    ),
+                    title: Text('günlük motivasyon'),
+                    onTap: () { Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=> const ElegantNotificationKullanimi()));
+                    } ),
+
 
               ],
             ),

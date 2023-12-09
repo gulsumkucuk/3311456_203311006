@@ -10,24 +10,22 @@ class Genel extends StatefulWidget {
 }
 
 class _GenelState extends State<Genel> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Scaffold(
-
             appBar: AppBar(
               leading: IconButton(
-                icon:Icon(Icons.arrow_back , color: Colors.white,) ,
-
-                onPressed:()=> Navigator.of(context).pop(),),
-
+                icon: Icon(
+                  Icons.arrow_back,
+                  color: Colors.white,
+                ),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
               backgroundColor: Colors.purple,
               title: Text("GENEL KÜLTÜR TESTİ"),
-
             ),
-
             body: SafeArea(
                 child: Container(
                     height: displayHeight(context),
@@ -38,10 +36,8 @@ class _GenelState extends State<Genel> {
                           "images/blue.jpg",
                         ),
                         fit: BoxFit.cover,
-
                       ),
                     ),
-
                     child: Padding(
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: SoruSayfasi(),
@@ -52,11 +48,13 @@ class _GenelState extends State<Genel> {
 class SoruSayfasi extends StatefulWidget {
   @override
   _SoruSayfasiState createState() => _SoruSayfasiState();
+  static List genelList = [];
 }
 
 class _SoruSayfasiState extends State<SoruSayfasi> {
-  List<Widget> secimler =[];
-  List<String> sorular=["Dünya'nın yüz ölçümü en büyük ülkesi  Rusyadır",
+  List<Widget> secimler = [];
+  List<String> sorular = [
+    "Dünya'nın yüz ölçümü en büyük ülkesi  Rusyadır",
     "Dünya'nın yüz ölçümü en küçük ülkesi  Vatikandır",
     "Dünya Kupası'nı en çok kazanan ülke  Arjantindir",
     "Japonya'nın milli sporu Sumo güreşidir",
@@ -73,10 +71,26 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
     "Periyodik tabloda 118 element vardır",
     "İnsan kulağında 3 kemik vardır",
     "İnsan beyninin ağırlığı ortalama 1,5 kg'dır",
-    "Yunan mitolojisinde müziğin, sanatın ve Güneş'in tanrısı Apollon'dur"];
-  List<bool>yanitlar=[true,true,false,true,false,true,false,false,true,false,false,true,true,true];
+    "Yunan mitolojisinde müziğin, sanatın ve Güneş'in tanrısı Apollon'dur"
+  ];
+   List<bool> yanitlar = [
+    true,
+    true,
+    false,
+    true,
+    false,
+    true,
+    false,
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    true
+  ];
 
-  int soruIndex=0;
+  int soruIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -107,57 +121,54 @@ class _SoruSayfasiState extends State<SoruSayfasi> {
           flex: 1,
           child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 6.0),
-              child: Row
-                ( crossAxisAlignment: CrossAxisAlignment.stretch,
+              child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 6),
+                            child: ElevatedButton(
+                              child: Icon(
+                                Icons.thumb_down,
+                                size: 30.0,
+                              ),
+                              onPressed: () {
+                                bool dogruYanit = yanitlar[soruIndex];
+                                setState(() {
+                                  if (dogruYanit == false) {
+                                    secimler.add(kDogruIconu);
+                                    SoruSayfasi.genelList.add(1);
+                                  } else {
+                                    secimler.add(kYanlisIconu);
+                                    SoruSayfasi.genelList.add(0);
+                                  }
 
-                Expanded(
-                    flex: 1,
-                    child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 6),
-                        child: ElevatedButton(
+                                  soruIndex++;
+                                });
+                              },
+                            ))),
+                    Expanded(
+                        flex: 1,
+                        child: Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 6),
+                            child: ElevatedButton(
+                              child: Icon(Icons.thumb_up, size: 30.0),
+                              onPressed: () {
+                                bool dogruYanit = yanitlar[soruIndex];
+                                setState(() {
+                                  if (dogruYanit == true) {
+                                    secimler.add(kDogruIconu);
+                                  } else {
+                                    secimler.add(kYanlisIconu);
+                                  }
 
-                          child: Icon(
-                            Icons.thumb_down,
-                            size: 30.0,
-                          ),
-                          onPressed: () {
-                            bool dogruYanit= yanitlar[soruIndex];
-                            setState(() {
-                              if(dogruYanit== false){
-                                secimler.add(kDogruIconu);
-                              }else{
-                                secimler.add(kYanlisIconu);
-                              }
-
-                              soruIndex++;
-
-                            });
-                          },
-                        ))),
-                Expanded(
-                    flex: 1,
-                    child: Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 6),
-                        child: ElevatedButton(
-
-                          child: Icon(Icons.thumb_up, size: 30.0),
-                          onPressed: () {
-                            bool dogruYanit= yanitlar[soruIndex];
-                            setState(() {
-                              if(dogruYanit== true){
-                                secimler.add(kDogruIconu);
-                              }else{
-                                secimler.add(kYanlisIconu);
-                              }
-
-                              soruIndex++;
-
-                            });
-                          },
-                        ))),
-              ])),
+                                  soruIndex++;
+                                });
+                              },
+                            ))),
+                  ])),
         )
       ],
     );
