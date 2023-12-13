@@ -4,7 +4,8 @@ import 'package:flutter_proje/genel.dart';
 import 'package:flutter_proje/information.dart';
 import 'package:flutter_proje/ing.dart';
 
-
+import 'game.dart';
+import 'translate.dart';
 import 'package:lottie/lottie.dart';
 import 'package:flutter_proje/page/notes_page.dart';
 
@@ -124,6 +125,25 @@ class _HomePageState extends State<HomePage> {
                     onTap: () { Navigator.of(context).push(
                         MaterialPageRoute(builder: (context)=> const Home()));
                     } ),
+                ListTile(
+                    leading: Icon(
+                      Icons.analytics_outlined,
+                      color: Colors.black,
+                    ),
+                    title: Text('günlük motivasyon'),
+                    onTap: () { Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=> const TranslatorApp()));
+                    } ),
+                ListTile(
+                    leading: Icon(
+                      Icons.analytics_outlined,
+                      color: Colors.black,
+                    ),
+                    title: Text('günlük motivasyon'),
+                    onTap: () { Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context)=>  WordMatchingGameScreen()));
+                    } ),
+
                 ListTile(
                     leading: Icon(
                       Icons.analytics_outlined,
