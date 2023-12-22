@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
 
@@ -80,7 +82,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
         centerTitle: true,
         flexibleSpace: Container(
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 50, 46, 165),
+            color: Colors.orangeAccent,
           ),
         ),
         title: const Text(
@@ -92,7 +94,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
           ),
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 87, 104, 254),
+      backgroundColor: const  Color.fromARGB(255, 255, 159, 100),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -235,7 +237,7 @@ class _TranslatorAppState extends State<TranslatorApp> {
               onPressed: translate,
               style: ButtonStyle(
                 backgroundColor:
-                MaterialStatePropertyAll(Colors.indigo.shade900),
+                MaterialStatePropertyAll(Colors.orangeAccent),
                 fixedSize: const MaterialStatePropertyAll(Size(300, 45)),
               ),
               child: isloading

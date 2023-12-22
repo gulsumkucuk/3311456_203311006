@@ -56,6 +56,9 @@ dependencies:
   html: ^0.15.4
   elegant_notification: ^1.11.2
   translator: ^0.1.7
+  confetti: ^0.7.0
+
+
 
 
 

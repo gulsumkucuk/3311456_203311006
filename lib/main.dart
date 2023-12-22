@@ -10,6 +10,7 @@ import 'package:flutter_proje/screens/login_screen/login_screen.dart';
 import 'package:flutter_proje/services/provider/auth_provider.dart';
 import 'package:provider/provider.dart';
 import 'bar_chart_sample6.dart';
+import 'game.dart';
 import 'homePage.dart';
 import 'kitap.dart';
 import 'utils/constants.dart';
@@ -35,6 +36,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "/Ingilizce": (context) => Ingilizce(),
+        "/Genel": (context) => Genel(),
+        "/WordGame": (context) => WordMatchingGameScreen(),
+        "/Notes": (context) => NotesPage(),
+      },
       title: 'Firebase Auth',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

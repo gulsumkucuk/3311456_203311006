@@ -145,6 +145,7 @@ class TestYapisi {
     }
     sonraki_soruya_gec();
   }
+
 }
 
 class Soru {
@@ -288,10 +289,13 @@ class _IngilizceState extends State<Ingilizce> {
                     ),
                     SizedBox(
                       height: 10.0,
-                    )
+                    ),
                   ],
                 ),
+
               ),
             )));
   }
 }
+
+
